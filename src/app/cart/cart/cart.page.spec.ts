@@ -2,8 +2,8 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { CartInputComponent } from '../components/cart-input/cart-input.component';
 import { CartOverviewComponent } from '../components/cart-overview/cart-overview.component';
 
+import { CartTestingModule } from '../testing/cart.module.testing';
 import { CartPage } from './cart.page';
-import { CartTestingModule } from './testing/cart.module.testing';
 
 describe('CartPage', () => {
   let component: CartPage;

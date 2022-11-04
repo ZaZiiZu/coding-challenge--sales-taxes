@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { CartTestingModule } from '../../cart/testing/cart.module.testing';
+import { CartTestingModule } from '../../testing/cart.module.testing';
 
 import { CartInputComponent } from './cart-input.component';
 
