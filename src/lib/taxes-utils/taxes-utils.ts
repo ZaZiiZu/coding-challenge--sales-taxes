@@ -9,3 +9,14 @@ export function calculateTaxAmounts(product: Product): { importTax: number, sale
 
   return { importTax: importTaxAmount, salesTax: salesTaxAmount };
 }
+
+export function roundTaxes(totalTax: number): number {
+  const roundingAccuracy = 0.05;
+  const roundedTax = Math.ceil(totalTax / roundingAccuracy) * roundingAccuracy;
+  return roundNumber(roundedTax, 2);
+}
+
+export function roundNumber(number: number, floatingPrecision: number): number {
+  const factor = Math.pow(10, floatingPrecision);
+  return Math.round(number * factor) / factor;
+}

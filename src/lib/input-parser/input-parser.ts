@@ -26,10 +26,10 @@ export function parseCartInput(cartInput: string): CartEntry[] {
 
 type SplitCartItems = { amount: number, name: string, price: number }[];
 export function splitForAmountNamePrice(multilineString: string): SplitCartItems {
-  const linesRegex = /^(.*)$/gm;
+  const linesRegex = /^(.*(\S)+)$/gm;
   const lines: string[] = [];
   let nextLine = linesRegex.exec(multilineString.trim());
-  while (nextLine) {
+  while (nextLine && nextLine[0]) {
     lines.push(nextLine[0]);
     nextLine = linesRegex.exec(multilineString);
   }

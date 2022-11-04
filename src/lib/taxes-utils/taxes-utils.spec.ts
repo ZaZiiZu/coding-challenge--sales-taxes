@@ -1,6 +1,6 @@
 import { Product } from "../models/product"
 import { ProductGroup } from "../models/product-group"
-import { calculateTaxAmounts } from "./taxes-utils"
+import { calculateTaxAmounts, roundTaxes } from "./taxes-utils"
 
 describe('calculateTaxAmounts', () => {
   it('works', () => {
@@ -17,6 +17,20 @@ describe('calculateTaxAmounts', () => {
 
     testCases.forEach(({ expected, product }) => {
       const actual = calculateTaxAmounts(product);
+      expect(actual).toEqual(expected);
+    })
+  })
+})
+
+describe('roundTaxes', () => {
+  it('works', () => {
+    const testCases: { input: Parameters<typeof roundTaxes>, expected: number }[] = [
+      { input: [0.21], expected: 0.25 },
+      { input: [0.86], expected: 0.90 },
+      { input: [123.4482], expected: 123.45 },
+    ];
+    testCases.forEach(({ input, expected }) => {
+      const actual = roundTaxes(...input);
       expect(actual).toEqual(expected);
     })
   })

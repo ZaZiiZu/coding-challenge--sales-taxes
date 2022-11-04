@@ -1,0 +1,14 @@
+<div style="display: flex;">
+  <div style="padding: 10px; border: 2px solid blue">
+    <label>Input</label>
+    <br>
+    <app-cart-input (inputChange)="updateCart($event)"></app-cart-input>
+  </div>
+
+  <div style="padding: 10px; border: 2px solid blue; min-width: 400px">
+    <label>Output</label>
+    <br>
+    <br>
+    <app-cart-overview [cart]="cart"></app-cart-overview>
+  </div>
+</div>
